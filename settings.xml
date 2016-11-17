@@ -1,0 +1,9 @@
+<settings>
+  <servers>
+    <server>
+      <id>maven.peertopark.com</id>
+      <username>${env.REPO_USER_TOKEN}</username>
+      <password>${env.REPO_PWD_TOKEN}</password>
+    </server>
+  </servers>
+</settings>
