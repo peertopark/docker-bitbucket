@@ -1,12 +1,11 @@
 FROM ubuntu:16.04
 MAINTAINER  PeertoPark
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y software-properties-common python-software-properties apt-utils && apt-get autoclean && apt-get clean
-RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
-RUN apt-get update && apt-get install -y php5.6-cli php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml php5.6-curl php5.6-xdebug composer phpunit rsync awscli openjdk-8-jdk maven nodejs npm unzip && apt-get autoclean && apt-get clean
+RUN apt-get update && apt-get install -y php-cli php-curl php-xdebug composer phpunit rsync awscli openjdk-8-jdk maven nodejs npm zip unzip git && apt-get autoclean && apt-get clean
 RUN ln -fs /usr/bin/nodejs /usr/local/bin/node
 RUN npm install --global csslint
 RUN npm install --global jshint
+RUN npm install --global yuicompressor
 ENV SSH_PRIVATE ""
 ADD sshconfig /root/.ssh/config
 ADD getssh /usr/bin/getssh

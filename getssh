@@ -1,11 +1,9 @@
 #!/bin/bash
 SSH=$1
-if [ ! -z "$SSH" ]
-then
+if [ ! -z "$SSH_PRIVATE" ]; then
 	echo "# Get SSH private key from env variable"
-	echo $SSH > ~/.ssh/id_rsa.tmp
+	echo $SSH_PRIVATE > ~/.ssh/id_rsa.tmp
 	base64 -di ~/.ssh/id_rsa.tmp > ~/.ssh/id_rsa
  	chmod 600 ~/.ssh/id_rsa
-	base64 ~/.ssh/id_rsa
 	echo "# SSH Key added"
 fi
