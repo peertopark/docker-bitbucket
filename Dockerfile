@@ -1,8 +1,6 @@
-FROM ubuntu:16.04
+FROM fedora:25
 MAINTAINER  PeertoPark
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y php-cli php-curl php-xdebug php-mysql composer phpunit rsync awscli openjdk-8-jdk maven nodejs npm zip unzip git && apt-get autoclean && apt-get clean
-RUN ln -fs /usr/bin/nodejs /usr/local/bin/node
+RUN dnf install -y git curl php-cli php-mysqlnd php-pecl-xdebug java-1.8.0-openjdk-devel maven zip unzip nodejs npm composer php-phpunit-PHPUnit aws && dnf clean all
 RUN npm install --global csslint
 RUN npm install --global jshint
 RUN npm install --global yuicompressor
