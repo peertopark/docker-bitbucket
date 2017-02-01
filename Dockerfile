@@ -5,9 +5,14 @@ RUN npm install --global csslint
 RUN npm install --global jshint
 RUN npm install --global yuicompressor
 ENV SSH_PRIVATE ""
-ADD sshconfig /root/.ssh/config
 ADD getssh /usr/bin/getssh
 RUN chmod +x /usr/bin/getssh
-RUN mkdir /root/.m2
-ADD settings.xml /root/.m2/settings.xml
+RUN useradd -ms /bin/bash builder
+ADD sshconfig /home/builder/.ssh/config
+RUN chown -R builder:builder /home/builder/.ssh
+RUN mkdir /home/builder/.m2
+ADD settings.xml /home/builder/.m2/settings.xml
+RUN chown -R builder:builder /home/builder/.m2
+USER builder
+WORKDIR /home/builder
 ENTRYPOINT ["/bin/bash"]
