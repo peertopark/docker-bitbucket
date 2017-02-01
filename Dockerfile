@@ -1,6 +1,6 @@
 FROM fedora:25
 MAINTAINER  PeertoPark
-RUN dnf install -y --best --allowerasing bzip2 git curl php-cli php-mysqlnd php-pecl-xdebug java-1.8.0-openjdk-devel maven zip unzip nodejs npm composer php-phpunit-PHPUnit awscli && dnf clean all
+RUN dnf install -y --best --allowerasing tar bzip2 git curl php-cli php-mysqlnd php-pecl-xdebug java-1.8.0-openjdk-devel maven zip unzip nodejs npm composer php-phpunit-PHPUnit awscli && dnf clean all
 RUN npm install --global csslint
 RUN npm install --global jshint
 RUN npm install --global yuicompressor
