@@ -2,3 +2,4 @@
 docker build -t peertopark/pipeline-core -f "core/Dockerfile" .
 docker build -t peertopark/pipeline-java -f "java/Dockerfile" .
 docker build -t peertopark/pipeline-php -f "php/Dockerfile" .
+docker build -t peertopark/pipeline-java-mysql -f "java-mysql/Dockerfile" .
